@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
 import SimpleITK as sitk
-
+import os
+print (os.getcwd())
 from detection3d.utils.image_tools import resample_spacing
 from detection3d.utils.landmark_utils import is_voxel_coordinate_valid
 

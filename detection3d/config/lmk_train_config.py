@@ -27,7 +27,7 @@ __C.general.target_landmark_label = {
 
 __C.general.save_dir = './detection3d/saves/weights'
 
-__C.general.resume_epoch = -1
+__C.general.resume_epoch = 7000#-1
 
 __C.general.num_gpus = 1
 
@@ -101,13 +101,13 @@ __C.net.name = 'vdnet'
 ##################################
 __C.train = {}
 
-__C.train.epochs = 2001
+__C.train.epochs = 5001
 
 __C.train.batch_size = 4
 
 __C.train.num_threads = 4
 
-__C.train.lr = 1e-4
+__C.train.lr = 1e-5
 
 __C.train.betas = (0.9, 0.999)
 

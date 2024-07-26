@@ -10,3 +10,14 @@ tensorboardX==2.2
 tensorboardX==2.6.2.2
 torch==2.3.1+cu118
 vtk==9.3.0
+
+detection==0.1.2
+easydict==1.13
+matplotlib==3.7.5
+pandas==2.0.3
+scipy
+SimpleITK==2.3.1
+SimpleITK==2.3.1
+tensorboardX
+torch==2.3.1
+vtk==9.3.0

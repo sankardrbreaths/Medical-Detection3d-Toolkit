@@ -245,11 +245,32 @@ class LandmarkDetectionDataset(Dataset):
 
     images = []
     image = sitk.ReadImage(image_path, sitk.sitkFloat32)
+    # print(image.GetOrigin())
+    # print(image.GetDirection())
+    # original_origin_co = image.GetOrigin()
+    # image.SetOrigin((0,0,0))
+    # image.SetDirection((-1.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, 1.0))
+    # print(image.GetOrigin())
+    # print(image.GetDirection())
     images.append(image)
 
     landmark_coords = self.landmark_coords_dict[image_name]
+    # # Convert the list of coordinates to a NumPy array
+    # old_coordinates = np.array(self.landmark_coords_dict[image_name]['coords'])
+
+    # # Perform element-wise subtraction
+    # adjusted_coordinates = old_coordinates - original_origin_co
+
+    # Update the original dictionary with the adjusted coordinates
+    # self.landmark_coords_dict[image_name]['coords'] = adjusted_coordinates.tolist()
+
     landmark_mask_path = self.landmark_mask_path[index]
     landmark_mask = sitk.ReadImage(landmark_mask_path, sitk.sitkFloat32)
+    # landmark_mask.SetOrigin((0,0,0))
+    # landmark_mask.SetDirection((-1.0, 0.0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, 1.0))
+    # print(landmark_mask.GetOrigin())
+    # print(landmark_mask.GetDirection())
+    # print(landmark_coords['coords'])
 
     # sampling a crop center
     if self.sampling_method == 'GLOBAL':

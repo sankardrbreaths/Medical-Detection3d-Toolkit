@@ -11,11 +11,11 @@ def main():
                        '3. A folder containing all testing images\n'
     
     parser = argparse.ArgumentParser(description=long_description)
-    parser.add_argument('-i', '--input', default='./assets/case_001.nii.gz',
+    parser.add_argument('-i', '--input', default='./assets/trial/case3/S0000000001_mod/S0000000001_mod2_origin.nii.gz',
                         help='input folder/file for intensity images')
-    parser.add_argument('-m', '--model', default='./detection3d/saves/weights',
+    parser.add_argument('-m', '--model', default='./saves/A_B_C_origin/weights',
                         help='model root folder')
-    parser.add_argument('-o', '--output', default='./detection3d/saves/weights',
+    parser.add_argument('-o', '--output', default='./saves/A_B_C_origin/results',
                         help='output folder for segmentation')
     parser.add_argument('-g', '--gpu_id', type=int, default=0,
                         help='the gpu id to run model, set to -1 if using cpu only.')

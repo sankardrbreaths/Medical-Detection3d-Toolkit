@@ -29,7 +29,7 @@ def get_landmark_detection_dataloader(cfg, mode):
 
         sampler = EpochConcateSampler(dataset, cfg.train.epochs)
         data_loader = DataLoader(dataset, sampler=sampler, batch_size=cfg.train.batch_size,
-                                 num_workers=cfg.train.num_threads, pin_memory=True)
+                                 num_workers=cfg.train.num_threads, prefetch_factor= cfg.train.prefetch_factor,  pin_memory=True)
 
     else:
         dataset = LandmarkDetectionDataset(

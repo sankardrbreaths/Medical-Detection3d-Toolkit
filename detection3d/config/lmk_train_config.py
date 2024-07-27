@@ -9,7 +9,7 @@ cfg = __C
 ##################################
 __C.general = {}
 
-__C.general.training_image_list_file = './assets/train.csv'
+__C.general.training_image_list_file = './assets/trial/case3/train_mod_origin.csv'
 
 __C.general.validation_image_list_file = ''
 
@@ -18,16 +18,11 @@ __C.general.target_landmark_label = {
     'A': 1,
     'B': 2,
     'C': 3,
-    'D': 4,
-    'E': 5,
-    'F': 6,
-    'G': 7,
-    'H': 8,
 }
 
-__C.general.save_dir = './detection3d/saves/weights'
+__C.general.save_dir = './saves/A_B_C_origin/weights'
 
-__C.general.resume_epoch = 7000#-1
+__C.general.resume_epoch = 8000
 
 __C.general.num_gpus = 1
 
@@ -46,9 +41,9 @@ __C.dataset.positive_upper_bound = 3    # voxel
 
 __C.dataset.negative_lower_bound = 6    # voxel
 
-__C.dataset.num_pos_patches_per_image = 8
+__C.dataset.num_pos_patches_per_image = 3
 
-__C.dataset.num_neg_patches_per_image = 16
+__C.dataset.num_neg_patches_per_image = 6
 
 # crop intensity normalizers (to [-1,1])
 # one normalizer corresponds to one input modality
@@ -85,7 +80,7 @@ __C.landmark_loss = {}
 
 __C.landmark_loss.name = 'Focal'          # 'Dice', or 'Focal'
 
-__C.landmark_loss.focal_obj_alpha = [0.75] * 9  # class balancing weight for focal loss
+__C.landmark_loss.focal_obj_alpha = [0.75] * 4  # class balancing weight for focal loss (weight * number of class)
 
 __C.landmark_loss.focal_gamma = 2         # gamma in pow(1-p,gamma) for focal loss
 
@@ -101,11 +96,13 @@ __C.net.name = 'vdnet'
 ##################################
 __C.train = {}
 
-__C.train.epochs = 5001
+__C.train.epochs = 20001
 
 __C.train.batch_size = 4
 
-__C.train.num_threads = 4
+__C.train.num_threads = 16
+
+__C.train.prefetch_factor = 2
 
 __C.train.lr = 1e-5
 
